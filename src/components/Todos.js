@@ -3,7 +3,7 @@ import React from 'react';
 class Todos extends React.Component {
   render() {
     return (
-      <table class="table table-dark">
+      <table class="table table-dark mt-3">
         <thead>
           <tr>
             <th scope="col">Text</th>
@@ -18,7 +18,7 @@ class Todos extends React.Component {
             <td>Apr 14</td>
             <td>0</td>
             <td>
-              <button class="btn btn-secondary">Edit</button>
+              <button class="btn btn-secondary mr-2">Edit</button>
               <button class="btn btn-danger">Delete</button>
             </td>
           </tr>
@@ -27,7 +27,7 @@ class Todos extends React.Component {
             <td>May 23</td>
             <td>0</td>
             <td>
-              <button class="btn btn-secondary">Edit</button>
+              <button class="btn btn-secondary mr-2">Edit</button>
               <button class="btn btn-danger">Delete</button>
             </td>
           </tr>
@@ -36,7 +36,7 @@ class Todos extends React.Component {
             <td>Okt 2</td>
             <td>0</td>
             <td>
-              <button class="btn btn-secondary">Edit</button>
+              <button class="btn btn-secondary mr-2">Edit</button>
               <button class="btn btn-danger">Delete</button>
             </td>
           </tr>

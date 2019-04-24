@@ -33,7 +33,7 @@ class TodoCreator extends React.Component {
   render() {
     return (
       <>
-        <button class="btn btn-primary" variant="primary" onClick={this.handleShow}>
+        <button class="btn btn-primary mt-3" variant="primary" onClick={this.handleShow}>
           Create a todo
         </button>
 
