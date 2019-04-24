@@ -53,9 +53,9 @@ class Todos extends React.Component {
   render() {
     return (
       <div>
-        <button className="btn btn-primary mt-3" variant="primary" onClick={this.handleShow}>
+        <Button className="mt-3" variant="primary" onClick={this.handleShow}>
           Create a todo
-        </button>
+        </Button>
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Create a todo</Modal.Title>
@@ -73,7 +73,7 @@ class Todos extends React.Component {
             </Button>
           </Modal.Footer>
         </Modal>
-        <div>
+        <div className="col-10 offset-1 mt-3">
           {this.state.todos.map((todo) => (
             <TodoItem key={todo.id} todo={todo} showForm={this.handleShow}/>
           ))}

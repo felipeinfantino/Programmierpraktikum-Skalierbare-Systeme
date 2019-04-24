@@ -7,7 +7,6 @@ class TodoItem extends Component {
     return (
         <div className="card mb-3">
           <div className="card-body">
-          <div className="row">
             <div className="col-10 offset-1">
               <div className="row">
                 <div className="col-5 d-flex align-items-center">
@@ -27,7 +26,6 @@ class TodoItem extends Component {
                 </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
     )
