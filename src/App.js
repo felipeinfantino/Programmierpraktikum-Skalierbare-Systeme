@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -7,8 +6,6 @@ import Nav from 'react-bootstrap/Nav';
 import {BrowserRouter, Route} from 'react-router-dom'
 import Impressum from './components/Impressum'
 import Todos from './components/Todos'
-
-
 
 class App extends React.Component {
   render() {
