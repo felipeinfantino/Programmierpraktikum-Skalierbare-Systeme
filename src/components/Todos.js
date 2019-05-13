@@ -39,7 +39,6 @@ class Todos extends React.Component {
   componentWillMount() {
     const previousTodos = this.state.todos;
 
-    console.log(previousTodos);
     // DataSnapshot
     this.database.on('child_added', snap => {
       previousTodos.push({
@@ -55,7 +54,6 @@ class Todos extends React.Component {
     });
 
     this.database.on('child_changed', snap => {
-      console.log(snap);
       const todoId = snap.key;
       const todoToUpdate = previousTodos.find(todo => todo.id === todoId);
       todoToUpdate['text'] = snap.val().text;
@@ -96,7 +94,6 @@ class Todos extends React.Component {
   }
 
   handleShow(event) {
-    console.log(this.database);
     if (typeof event === 'string') {
       // that means an id was passed and we are actually editing and not creating
       const todo = this.state.todos.find(todo => todo.id === event);
@@ -123,7 +120,6 @@ class Todos extends React.Component {
     var formTodo = { ...this.state.formTodo };
     formTodo['deadline'] = date;
     this.setState({ formTodo: formTodo });
-    console.log(formTodo);
   }
 
   handleChange(event) {
@@ -157,6 +153,13 @@ class Todos extends React.Component {
 
     const todoId = this.state.formTodo.id;
     const existentTodo = this.state.todos.find(todo => todo.id === todoId);
+    // check that the todo text is unique
+    const duplicatedTodo = this.state.todos.find(todo => todo.text === this.state.formTodo.text);
+    if (duplicatedTodo) {
+      alert('You already have to do that');
+      return;
+    }
+
     date = day + '/' + month + '/' + year;
 
     // if we are in the editing dialog we want to update the database, otherwise we want to update the node
@@ -167,11 +170,6 @@ class Todos extends React.Component {
         deadline: date
       });
     } else {
-      // if we are creating we want to check that the todo text is unique
-      if (existentTodo) {
-        alert('You already have to do that');
-        return;
-      }
       this.database.push().set({
         text: this.state.formTodo.text,
         progress: this.state.formTodo.progress,
